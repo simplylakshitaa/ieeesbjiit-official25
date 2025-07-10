@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WIE Section</title>
+  <link rel="stylesheet" href="wie.css">
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
+</head>
+<body>
+  <div id="vanta-bg"></div>
+  <section class="wie-section">
+    
+    <div class="wie-heading">
+        <img src="images2/wie-logo.png" alt="WIE Logo" class="wie-logo" />
+        <div class="wie-text">
+            <h1>Women in Engineering</h1>
+            <p class="wie-tagline" id="typewriter"></p>
+        </div>
+        
+    </div>
+
+    <div class="wie-content">
+      <div class="wie-left">
+        <h2>About WIE</h2>
+        <p>
+          The Women in Engineering (WIE) Affinity Group at IEEE SB JIIT is dedicated to promoting the involvement
+          and success of women in engineering and technology. Through our various initiatives, events, and programs,
+          we aim to encourage professional growth, networking, and collaboration among women engineers. 
+          By fostering a supportive community, WIE at IEEE SB JIIT envisions a future where women and men collaborate to 
+          drive technological innovation for societal benefit. Provide assistance with the formation of new IEEE WIE Affinity
+          Groups and support ongoing activities.Promote member grade advancement for women to the IEEE membership grades of 
+          Senior Member and Fellow. Advocate women in leadership roles in IEEE governance and career advancement for women in 
+          the profession.
+        </p>
+      </div>
+
+      <div class="wie-right">
+        <h2>Our Events</h2>
+        <div class="gallery-container">
+          <div class="slider">
+        
+            <div class="slide"><img src="images2/1.jpg" alt="Event 1" /></div>
+            <div class="slide"><img src="images2/3.jpg" alt="Event 2" /></div>
+            <div class="slide"><img src="images2/5.png" alt="Event 3" /></div>
+            <div class="slide"><img src="images2/6.jpg" alt="Event 4" /></div>
+            <div class="slide"><img src="images2/7.jpg" alt="Event 5" /></div>
+            <div class="slide"><img src="images2/8.jpg" alt="Event 6" /></div>
+
+
+          </div>
+          <button class="nav prev" onclick="prevSlide()">&#10094;</button>
+          <button class="nav next" onclick="nextSlide()">&#10095;</button>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <script>
+    VANTA.NET({
+      el: "#vanta-bg",
+      mouseControls: true,
+      touchControls: true,
+      gyroControls: false,
+      minHeight: 200.00,
+      minWidth: 200.00,
+      scale: 1.00,
+      scaleMobile: 1.00,
+      color: 0x2e3d3d,
+      backgroundColor: 0x000000,
+      points: 11.00,
+      maxDistance: 19.00,
+      spacing: 18.00
+    });
+  </script>
+
+  <script src="wie.js"></script>
+</body>
+</html>

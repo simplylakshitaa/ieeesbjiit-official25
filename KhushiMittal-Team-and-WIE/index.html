@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Section</title>
+    <link rel="stylesheet" href="style.css">
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
+    
+</head>
+<body>
+    <div id="vanta-bg">
+    <div class="banner">
+        <div class="slider" style="--quantity: 18">
+            <div class="item" style="--position: 1"><img src="images1/AsthaKumari.png" alt=""></div>
+            <div class="item" style="--position: 2"><img src="images1/PranshuSharma.png" alt=""></div>
+            <div class="item" style="--position: 3"><img src="images1/SaranshMathur.png" alt=""></div>
+            <div class="item" style="--position: 4"><img src="images1/IshitaAgarwal.png" alt=""></div>
+            <div class="item" style="--position: 5"><img src="images1/RuchitKhandelwal.png" alt=""></div>
+            <div class="item" style="--position: 6"><img src="images1/VanshikaSingh.png" alt=""></div>
+            <div class="item" style="--position: 7"><img src="images1/SparshTyagi.png" alt=""></div>
+            <div class="item" style="--position: 8"><img src="images1/DakshSachdeva.png" alt=""></div>
+            <div class="item" style="--position: 9"><img src="images1/PrakharSharma.png" alt=""></div>
+            <div class="item" style="--position: 10"><img src="images1/ApoorvMittal.png" alt=""></div>
+            <div class="item" style="--position: 11"><img src="images1/IshiBharadwaj.png" alt=""></div>
+            <div class="item" style="--position: 12"><img src="images1/MedhaviKhandelwal.png" alt=""></div>
+            <div class="item" style="--position: 13"><img src="images1/ApoorvaSoni.png" alt=""></div>
+            <div class="item" style="--position: 14"><img src="images1/DakshaPandey.png" alt=""></div>
+            <div class="item" style="--position: 15"><img src="images1/MohdAayaan.png" alt=""></div>
+            <div class="item" style="--position: 16"><img src="images1/AnoushkaKaushik.png" alt=""></div>
+            <div class="item" style="--position: 17"><img src="images1/ManayavVatsal.png" alt=""></div>
+            <div class="item" style="--position: 18"><img src="images1/Dr.AbhayKumar.png" alt=""></div>
+        </div>
+        
+    </div>
+    </div>
+    <script>
+    VANTA.NET({
+      el: "#vanta-bg",
+      mouseControls: true,
+      touchControls: true,
+      gyroControls: false,
+      minHeight: 200.00,
+      minWidth: 200.00,
+      scale: 1.00,
+      scaleMobile: 1.00,
+      color: 0x2e3d3d,
+      backgroundColor: 0x000000,
+      points: 11.00,
+      maxDistance: 19.00,
+      spacing: 18.00
+    });
+  </script>
+  <script>
+  const slider = document.querySelector('.slider');
+  const items = document.querySelectorAll('.slider .item');
+  const quantity = items.length;
+
+  function updateVisibleItems() {
+    const rotation = getCurrentRotationY(slider);
+    const anglePerItem = 360 / quantity;
+
+    items.forEach((item, index) => {
+      const itemAngle = ((index) * anglePerItem - rotation + 360) % 360;
+
+      // Front range: ~ -30 to +30 degrees
+      if (itemAngle <= 30 || itemAngle >= 330) {
+        item.classList.add('visible');
+      } else {
+        item.classList.remove('visible');
+      }
+    });
+  }
+
+  function getCurrentRotationY(el) {
+    const computedStyle = window.getComputedStyle(el);
+    const transform = computedStyle.transform || computedStyle.webkitTransform;
+
+    if (transform === "none") return 0;
+
+    const values = transform.split('(')[1].split(')')[0].split(',');
+    const matrix = values.map(parseFloat);
+
+    const rad = Math.atan2(matrix[2], matrix[0]);
+    const deg = rad * (180 / Math.PI);
+    return (deg + 360) % 360;
+  }
+
+  setInterval(updateVisibleItems, 30); // Update ~30 FPS
+</script>
+<script>
+  const sliderEl = document.querySelector('.slider');
+
+  sliderEl.addEventListener('mouseover', (e) => {
+    if (e.target.closest('.item.visible')) {
+      sliderEl.style.animationPlayState = 'paused';
+    }
+  });
+
+  sliderEl.addEventListener('mouseout', (e) => {
+    if (e.target.closest('.item.visible')) {
+      sliderEl.style.animationPlayState = 'running';
+    }
+  });
+</script>
+
+  
+    
+</body>
+
+</html>
